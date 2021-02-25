@@ -1,9 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * Provides options to the program gui and interacts with the user to manipulate the AddressBook
+ *
+ * @author Geovany Felix
+ * @since February 2021
+ */
 public class Menu {
 
+    /** singleton instance of AddressBook */
     private AddressBook ab = AddressBook.getInstance();
 
+    /**
+     * select() acts as the selection screen for the user. This method enters an infinite loop that is only escaped
+     * if the user selects the "quit" option from the menu. A switch statement is used to identify the user's input
+     */
     public void select()
     {
         boolean quit = false;
@@ -12,10 +23,10 @@ public class Menu {
 
         while(!quit)
         {
-            format();
+            format(); /** format() displays the user options */
             input = inputFromUser.nextLine();
 
-            if(input.charAt(0) < 123 && input.charAt(0) > 96)
+            if(input.charAt(0) < 123 && input.charAt(0) > 96) /** uses ascii value to validate user input */
             {
                 switch (input)
                 {
@@ -46,6 +57,9 @@ public class Menu {
         }
     }
 
+    /**
+     * prints out the menu options to the user
+     */
     private void format()
     {
         System.out.println("********************");
@@ -59,6 +73,9 @@ public class Menu {
         System.out.println("********************");
     }
 
+    /**
+     * prompts the user for a file name to provide to the addressbook
+     */
     public void read()
     {
         Scanner inputFromUser = new Scanner(System.in);
@@ -67,6 +84,10 @@ public class Menu {
         ab.readFromFile(filename);
     }
 
+    /**
+     * asks the user for input to update the first name, last name, street, city, state, zip, phone, and
+     * email of an address entry before adding it to the address book
+     */
     public void addition()
     {
         AddressEntry x = new AddressEntry();
@@ -93,6 +114,10 @@ public class Menu {
 
     }
 
+    /**
+     * prompts the user for the last name of the entry they want to remove before sending the String to
+     * AddressBook
+     */
     public void removal()
     {
         Scanner inputFromUser = new Scanner(System.in);
@@ -101,6 +126,9 @@ public class Menu {
         ab.remove(inputFromUser.nextLine());
     }
 
+    /**
+     * prompts the user for a String to provide to AddressBook to find a path for entries
+     */
     public void find()
     {
         Scanner inputFromUser = new Scanner(System.in);
@@ -109,6 +137,9 @@ public class Menu {
         ab.find(inputFromUser.nextLine());
     }
 
+    /**
+     * calls the list method from AddressBook
+     */
     public void listing()
     {
         ab.list();
