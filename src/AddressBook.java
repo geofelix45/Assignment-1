@@ -59,8 +59,8 @@ public class AddressBook {
             x.setCity(scan.nextLine());
             x.setState(scan.nextLine());
             x.setZip(Integer.parseInt(scan.nextLine()));
-            x.setPhone(scan.nextLine());
             x.setEmail(scan.nextLine());
+            x.setPhone(scan.nextLine());
             add(x.getLastName(), x);
             newCount++;
         }
