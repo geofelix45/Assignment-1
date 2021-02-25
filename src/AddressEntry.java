@@ -21,6 +21,19 @@ public class AddressEntry {
         email = " ";
     }
 
+    public AddressEntry(String firstName, String lastName, String street, String city, String state, int zip, String phone, String email)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
+
+    }
+
     public String toString()
     {
         return (firstName + " " + lastName + "\n" + street + ", " + city + ", " + state + " " + zip + "\n" + phone + " " + email + "\n");
